@@ -203,3 +203,16 @@ function bankSysytem(userAccount) {
     
 }
 }
+// !----------Withdraw---------------
+function withdraw(userAccount) {
+    let montant =  Number(prompt("chhal bghiti ts7ab ?"));
+    if (montant > 0 && montant <= userAccount.balance) {
+        userAccount.balance = userAccount.balance -montant;
+        alert("ob9alik :" +userAccount.balance)
+        userAccount.history.push("withdraw:" +montant)
+        
+    }
+    else{
+        alert("Montant invalid")
+    }
+}
