@@ -235,3 +235,29 @@ function deposit(userAccount) {
     }
 
 }
+
+// !------------Loan--------------------
+function loan(userAccount) {
+    let credit = userAccount.balance *20 / 100;
+    mablagh = Number(prompt("chhal bghiti credit?"));
+    if (mablagh > 0 && mablagh <= credit) {
+        userAccount.balance += mablagh;
+        userAccount.loan = mablagh;
+        userAccount.history.push("loan: " + mablagh);
+        alert("credit: " + userAccount.balance)
+        
+    } else {
+        alert("credit mamno3")
+    }
+    
+}
+console.log(user);
+
+// !--------------Investment---------------
+function investement(userAccount) {
+    let invst = Number(prompt("chhal bghiti t investi?"));
+    userAccount.balance -= invst;
+    userAccount.investement.push(invst);
+    userAccount.history.push("Investissement: " + invst);
+    alert("Successful invst: " + invst)
+}
