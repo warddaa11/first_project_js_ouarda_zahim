@@ -216,3 +216,22 @@ function withdraw(userAccount) {
         alert("Montant invalid")
     }
 }
+
+
+
+// !---------------Deposit--------------
+function deposit(userAccount) {
+    let montant = Number(prompt("chhal bghiti t7at dlflos"));
+    if (montant > 0 && montant <= 1000) {
+        userAccount.balance += montant;
+        userAccount.history.push("deposit:" + montant)
+        console.log(userAccount.history);
+        alert("Success deposit")
+        alert("Blance: " + montant)
+        
+    }
+    else{
+        alert("Montant invalid")
+    }
+
+}
