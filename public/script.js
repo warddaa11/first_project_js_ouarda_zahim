@@ -148,6 +148,7 @@ function login(){
     let pas = prompt("Enter Password");
     if ( usr.password === pas) {
         alert("Connecte");
+        // -------------------------------------
         if (usr.loan > 0) {
          let ded = usr.loan * 0.1;
          usr.balance -= ded;
@@ -156,6 +157,14 @@ function login(){
              usr.loan = 0;
          }
         }
+        // -------------------------------------
+        if (usr.investement.length > 0) {
+            let invst = usr.investement[usr.investement.length -1];
+            let profit = invst * 0.2;
+            usr.balance += profit;
+            usr.history.push("profit invest: " + profit);
+        }
+
         return usr;
     }
     else{
