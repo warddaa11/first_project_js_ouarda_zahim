@@ -154,3 +154,16 @@ function login(){
     }
 }
 
+// !--------Change Password--------
+function changePassword(){
+  let email = prompt ("Enter Your Email");
+  let emailUser = user.find(u => u.email === email);
+  if (!emailUser) {
+    alert("Email not Found");
+    return;
+  } else {
+    let newPassword = prompt("Enter Your New Password");
+    newPassword = user.password;
+    alert("Your Password Changed")
+  }
+}
