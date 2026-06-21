@@ -45,3 +45,30 @@ while (true) {
     }
   
 }
+
+// !-----User-------
+function signUp() {
+    // ========Name=============================
+    let nom = prompt("Enter Full Name").trim();
+    if (nom.length < 5) {
+        alert("Short name")
+        return;
+    }
+    // ==========Email======================
+    let email = prompt("Enter Email").trim();
+    email = email.toLowerCase();
+    if (email.includes(" ")) {
+        alert("Remove Space");
+        return;
+    }
+    if (email.length < 10) {
+        alert("Email short")
+        return;
+    }
+    let exist = user.find( u => u.email === email)
+    if (exist) {
+        alert("Email Exist")
+    }
+    if (!email.includes("@")) {
+        alert("Email must contain @")
+    }
