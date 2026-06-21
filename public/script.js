@@ -72,3 +72,63 @@ function signUp() {
     if (!email.includes("@")) {
         alert("Email must contain @")
     }
+
+    // ==============Age====================
+    let age = prompt("Enter Age").trim();
+    if (age.includes(" ")) {
+        alert("Remove Space");
+        return;
+    }
+     if (age.length === 0 || age.length >= 3) {
+        alert("Invalid Age")
+        return;
+    }
+    if (isNaN(age)) {
+        alert("Age must cotain Numbers");
+        return;
+    }
+    // ============Password=================
+    let password = prompt("Enter Password").trim();
+    if (password.includes(" ")) {
+        alert("Remove Space");
+        return;
+    }
+
+    if (!password.includes("@") &&
+        !password.includes("#") &&
+        !password.includes("-") &&
+        !password.includes("+") &&
+        !password.includes("*") &&
+        !password.includes("/")) {
+        alert("Add one Special Caracter");
+        return;
+    }
+     if (password.length < 7) {
+        alert("Password short")
+        return;
+    }
+    let confirm = prompt ("Confirm");
+
+    
+    
+    if (confirm === password) {
+    user.push({
+        name: nom,
+        email: email,
+        age: age,
+        password: password,
+        balance: 0,
+        loan: 0,
+        investement:[],
+        history:[],
+
+    });
+    console.log("Account Created");
+    
+    } else {
+    console.log("Incorrect Password");
+    return;
+    
+   }
+}
+console.log(user);
