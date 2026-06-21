@@ -167,3 +167,39 @@ function changePassword(){
     alert("Your Password Changed")
   }
 }
+
+// !TODO--------------------------------
+function bankSysytem(userAccount) {
+    while (true) {
+    let choice=prompt("Banc Menu: \n 1- Check Balance \n 2- Withdraw \n 3- Deposit \n 4- loan \n 5- Investissemnt \n 6- History \n 7- Logout")
+    
+    
+    if (choice === "1") {
+        alert("You Balance: " + userAccount.balance);
+       
+
+    }else if (choice === "2") {
+         withdraw(userAccount);
+        
+    }
+    else if (choice === "3") {
+        deposit(userAccount);
+       
+
+    }else if (choice === "4") {
+       loan(userAccount);
+    
+    
+    }else if (choice === "5") {
+        investement(userAccount)
+    }
+    else if (choice === "6") {
+        displayHistory(userAccount);
+    }
+    else if (choice === "7" || choice === "exit") {
+        alert("Logged out");
+       break;
+    }
+    
+}
+}
