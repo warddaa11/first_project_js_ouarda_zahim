@@ -54,6 +54,8 @@ function signUp() {
         alert("Short name")
         return;
     }
+    nom = nom[0].toUpperCase() + nom.slice(1);
+
     // ==========Email======================
     let email = prompt("Enter Email").trim();
     email = email.toLowerCase();
