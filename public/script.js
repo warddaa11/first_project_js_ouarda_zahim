@@ -132,3 +132,25 @@ function signUp() {
    }
 }
 console.log(user);
+
+// !------Login--------------------
+
+function login(){
+    let em = prompt("Enter Email");
+    
+    let usr = user.find( user => 
+        user.email === em );
+    if (!usr) {
+        alert("eamail not found");
+        return;
+    } 
+    let pas = prompt("Enter Password");
+    if ( usr.password === pas) {
+        alert("Connecte");
+        return usr;
+    }
+    else{
+        alert("wrong pass")
+    }
+}
+
