@@ -68,6 +68,7 @@ function signUp() {
     let exist = user.find( u => u.email === email)
     if (exist) {
         alert("Email Exist")
+        return;
     }
     if (!email.includes("@")) {
         alert("Email must contain @")
@@ -147,11 +148,21 @@ function login(){
     let pas = prompt("Enter Password");
     if ( usr.password === pas) {
         alert("Connecte");
+        if (usr.loan > 0) {
+         let ded = usr.loan * 0.1;
+         usr.balance -= ded;
+         usr.loan -= ded;
+          if (usr.loan < 0) {
+             usr.loan = 0;
+         }
+        }
         return usr;
     }
     else{
         alert("wrong pass")
     }
+
+     
 }
 
 // !--------Change Password--------
@@ -163,7 +174,7 @@ function changePassword(){
     return;
   } else {
     let newPassword = prompt("Enter Your New Password");
-    newPassword = user.password;
+    emailUser.password = newPassword;
     alert("Your Password Changed")
   }
 }
@@ -227,7 +238,7 @@ function deposit(userAccount) {
         userAccount.history.push("deposit:" + montant)
         console.log(userAccount.history);
         alert("Success deposit")
-        alert("Blance: " + montant)
+        alert("Blance: " + userAccount.balance)
         
     }
     else{
@@ -249,9 +260,12 @@ function loan(userAccount) {
     } else {
         alert("credit mamno3")
     }
-    
+  
 }
-console.log(user);
+
+
+
+
 
 // !--------------Investment---------------
 function investement(userAccount) {
@@ -260,4 +274,10 @@ function investement(userAccount) {
     userAccount.investement.push(invst);
     userAccount.history.push("Investissement: " + invst);
     alert("Successful invst: " + invst)
+}
+
+// !-------------History-------------------
+function displayHistory(userAccount) {
+    alert("History: -------------\n" + 
+        userAccount.history)
 }
